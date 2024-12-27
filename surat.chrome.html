@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to bottom right, #ffe4e1, #ffc0cb, #ffb6c1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap');
+        .content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 0 20px;
+            animation: slideIn 2s ease-in-out;
+        }
+        @keyframes slideIn {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+        .photo-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: fadeIn 3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .photo-container .photo {
+            width: 250px;
+            height: 330px;
+            border: 8px solid #ff6368;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: rgb(244, 40, 40);
+            position: relative;
+            animation: pulse 2s infinite ease-in-out;
+        }
+        .photo-container .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 10px 30px rgba(255, 99, 104, 0.8);
+                transform: scale(1.05);
+            }
+        }
+        .letter-container {
+            background: rgb(255, 240, 245);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            max-width: 650px;
+            animation: fadeInLetter 2s ease-in-out;
+            text-align: center;
+        }
+        @keyframes fadeInLetter {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        h1 {
+            color: #ff6f61;
+            margin-bottom: 15px;
+            font-size: 28px;
+            font-family: 'Dancing Script', cursive;
+            animation: bounce 1s infinite alternate;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+        .letter {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            text-align: justify;
+            font-family: 'Dancing Script', cursive;
+            animation: slideUp 3s ease-in-out;
+        }
+        @keyframes slideUp {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .signature {
+            margin-top: 15px;
+            font-style: italic;
+            color: #555;
+        }
+        .controls {
+            margin-top: 15px;
+        }
+        .controls button {
+            background: linear-gradient(to right, #ff6a95, #ff4d6d);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .controls button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        .floating-objects {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .floating-objects span {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 99, 104, 0.9);
+            opacity: 0.8;
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+        .floating-objects span:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+        .floating-objects span:nth-child(2) {
+            left: 30%;
+            animation-delay: 1s;
+        }
+        .floating-objects span:nth-child(3) {
+            left: 50%;
+            animation-delay: 2s;
+        }
+        .floating-objects span:nth-child(4) {
+            left: 70%;
+            animation-delay: 3s;
+        }
+        .floating-objects span:nth-child(5) {
+            left: 90%;
+            animation-delay: 4s;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-objects">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="content-wrapper">
+        <div class="photo-container">
+            <div class="photo">
+                <img src="IMG-20241225-WA0029.jpg" alt="Photo">
+            </div>
+            <div class="photo">
+                <img src="IMG-20241225-WA0031.jpg" alt="Photo">
+            </div>
+        </div>
+        <div class="letter-container">
+            <h1>Dear Yuyul cantikkk^-^,</h1>
+            <p class="letter">
+                Ketika aku menuliskan surat ini, aku dipenuhi dengan rasa kagum yang mendalam terhadapmu (Musiknya di play dulu dong). Tahun ini bukanlah perjalanan yang mudah, namun kamu telah menunjukkan kekuatan luar biasa yang hanya dimiliki oleh seseorang yang istimewa seperti dirimu.
+
+                Sebagai anak pertama, aku tahu bahwa tanggung jawab yang kamu pikul sering kali terasa berat, tetapi kamu menjalaninya dengan keberanian yang tak tergoyahkan. Aku melihat bagaimana kamu menghadapi setiap tantangan, menjaga keluargamu, dan tetap berusaha memberikan yang terbaik, meskipun terkadang dunia terasa begitu melelahkan an tidak sesuai ekspetasimu.
+                
+                aku ingin kamu tahu bahwa semua perjuanganmu tidak pernah luput dari perhatianku. Bagiku, kamu adalah contoh dari ketangguhan yang luar biasa, seseorang yang tidak pernah menyerah bahkan di saat-saat terberat. Kamu telah menjadi pelindung dan penyemangat bagi mereka yang mencintaimu, termasuk aku.
+                
+            </p>
+            <p class="letter">
+                Yull, gapapaa jika memang tahun ini bukan tahun yang amat berarti bagi kamu
+                kalo kamu lagi capek aku mohon banget jangan di pendem sendiri aku tau kamu sering gitu, aku ada disini loo,   maaf juga yaa kalo aku masi banyak kurang dan salahnya yaa heheee
+            </p>
+            <p class="letter">    
+                Terima kasih sudah menjadi cahaya dalam hidupku, terima kasih sudah menjadi Yuyull yang hebat dan penuh kasih. Ayook kita sambut tahun baru dengan harapan, cinta, dan semangat yang lebih besar lagi. Aku percaya, masa depan akan membawa kebahagiaan yang pantas Kita dapatkan.💖
+            </p>
+            <p class="signature">With all my love,<br>Iann Kerenn</p>
+            <div class="controls">
+                <button onclick="startMusic()">Play Music</button>
+                <button onclick="stopMusic()">Stop Music</button>
+            </div>
+        </div>
+        <div class="photo-container">
+            <div class="photo">
+                <img src="WhatsApp Image 2024-12-25 at 23.30.42_738a8976.jpg" alt="Photo">
+            </div>
+            <div class="photo">
+                <img src="IMG-20241225-WA0032.jpg" alt="Photo">
+            </div>
+        </div>
+    </div>
+    <audio id="background-music" loop>
+        <source src="spotifydown (mp3cut.net).mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        const music = document.getElementById('background-music');
+
+        function startMusic() {
+            music.play();
+        }
+
+        function stopMusic() {
+            music.pause();
+            music.currentTime = 0;
+        }
+    </script>
+</body>
+</html>
